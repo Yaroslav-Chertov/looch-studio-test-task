@@ -2,7 +2,7 @@ export function HeroBlock() {
   return (
     <section className="px-4 py-12 md:py-20 bg-white">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-2xl md:text-6xl font-semibold leading-tight">
+        <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
           Карта HR-сервисов
         </h1>
 
@@ -13,13 +13,13 @@ export function HeroBlock() {
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <button className="px-5 py-3 border border-black text-sm font-medium sm:w-48 hover:bg-gray-100 transition rounded-md">
+          <button className="px-5 py-3 bg-black text-white text-sm font-medium sm:w-48 hover:bg-gray-800 transition rounded-md">
             Найти сервис
           </button>
 
           <a
             href="#new-employee"
-            className="px-5 py-3 bg-black text-white text-sm font-medium sm:w-48 hover:bg-gray-800 transition inline-block text-center rounded-md"
+            className="px-5 py-3 border border-black bg-white text-black text-sm font-medium sm:w-48 hover:bg-gray-100 transition inline-block text-center rounded-md"
           >
             Я новый сотрудник
           </a>
