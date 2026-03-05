@@ -11,12 +11,12 @@ const lifecycleSteps = [
 ] as const;
 
 const lifecycleLabels: Record<(typeof lifecycleSteps)[number], string> = {
-  search: "Поиск",
+  search: "Вакансии",
   recruitment: "Подбор",
   onboarding: "Пребординг",
   adaptation: "Адаптация",
   work: "Производительность",
-  termination: "Увольнение",
+  termination: "Документы",
 };
 
 const mockServicesByStep: Record<
@@ -76,7 +76,7 @@ const mockServicesByStep: Record<
   termination: [
     {
       title: "Оформление увольнения",
-      description: "Инструкции и документы",
+      description: "Инструкции и все основные документы",
       roles: ["employee", "hr"],
       lifecycle: "termination",
       channels: ["web"],
@@ -88,7 +88,7 @@ const mockServicesByStep: Record<
 export function LifecycleNav() {
   return (
     <section className="px-4 pr-0 py-6 border-b bg-white">
-      <div className="max-w-4xl mx-auto flex flex-col gap-4">
+      <div className="max-w-6xl mx-auto flex flex-col gap-4">
         <h2 className="text-xl font-semibold">Маршрут сотрудника</h2>
 
         <div className="overflow-x-auto px-0 py-2">

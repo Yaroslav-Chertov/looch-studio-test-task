@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
 
 export function HeaderBlock() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,31 +15,40 @@ export function HeaderBlock() {
           Ареал
         </a>
 
-        <nav className="hidden md:flex gap-6">
-          <a href="#services" className="text-gray-700 hover:text-black">
-            Сервисы
-          </a>
-          <a href="#onboarding" className="text-gray-700 hover:text-black">
-            Онбординг
-          </a>
-          <a href="#roadmap" className="text-gray-700 hover:text-black">
-            Дорожная карта
-          </a>
-          <a href="#contacts" className="text-gray-700 hover:text-black">
-            Контакты
-          </a>
-        </nav>
+        <div className="hidden md:flex items-center gap-4">
+          <button className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition">
+            <MagnifyingGlassIcon className="h-5 w-5" />
+          </button>
 
-        <button
-          className="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 transition"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? (
-            <XMarkIcon className="h-6 w-6" />
-          ) : (
-            <Bars3Icon className="h-6 w-6" />
-          )}
-        </button>
+          <nav className="flex gap-6">
+            <a href="#services" className="text-gray-700 hover:text-black">
+              Сервисы
+            </a>
+            <a href="#roadmap" className="text-gray-700 hover:text-black">
+              Маршрут сотрудника
+            </a>
+            <a href="#contacts" className="text-gray-700 hover:text-black">
+              Контакты
+            </a>
+          </nav>
+        </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <button className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition">
+            <MagnifyingGlassIcon className="h-5 w-5" />
+          </button>
+
+          <button
+            className="p-2 rounded-md text-gray-700 hover:bg-gray-100 transition"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? (
+              <XMarkIcon className="h-6 w-6" />
+            ) : (
+              <Bars3Icon className="h-6 w-6" />
+            )}
+          </button>
+        </div>
       </div>
 
       {isOpen && (

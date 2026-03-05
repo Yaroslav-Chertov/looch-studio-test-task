@@ -64,8 +64,8 @@ export function ServicesSection() {
   const visibleServices = mockServices.slice(0, 6);
 
   return (
-    <section className="px-4 py-6 border-b">
-      <div className="max-w-4xl mx-auto flex flex-col gap-4">
+    <section className="px-4 py-6">
+      <div className="max-w-6xl mx-auto flex flex-col gap-4">
         <h2 className="text-xl font-semibold">Сервисы</h2>
 
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
@@ -75,7 +75,7 @@ export function ServicesSection() {
         </div>
 
         <div className="flex justify-center mt-4">
-          <button className="px-4 py-2 bg-black text-white rounded-md">
+          <button className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
             Смотреть все
           </button>
         </div>
