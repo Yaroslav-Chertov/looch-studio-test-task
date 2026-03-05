@@ -1,3 +1,5 @@
+import type { FC } from "react";
+
 export type Role = "employee" | "manager" | "hr";
 export type Lifecycle =
   | "search"
@@ -17,14 +19,36 @@ export type ServiceCardProps = {
   status: "done" | "in-progress" | "planned";
 };
 
-export function ServiceCard({
+const roleLabels: Record<Role, string> = {
+  employee: "Сотрудник",
+  manager: "Руководитель",
+  hr: "HR",
+};
+
+const lifecycleLabels: Record<Lifecycle, string> = {
+  search: "Вакансии",
+  recruitment: "Подбор",
+  onboarding: "Онбординг",
+  adaptation: "Адаптация",
+  work: "Работа",
+  termination: "Увольнение",
+};
+
+const channelLabels: Record<Channel, string> = {
+  mobile: "Мобильное",
+  web: "Веб",
+  bot: "Бот",
+  academy: "Академия",
+};
+
+export const ServiceCard: FC<ServiceCardProps> = ({
   title,
   description,
   roles,
   lifecycle,
   channels,
   status,
-}: ServiceCardProps) {
+}) => {
   const statusColor =
     status === "done"
       ? "bg-green-500"
@@ -55,36 +79,24 @@ export function ServiceCard({
             key={role}
             className="text-xs px-2 py-1 border border-gray-400 rounded"
           >
-            {role}
+            {roleLabels[role]}
           </span>
         ))}
         <span className="text-xs px-2 py-1 border border-gray-400 rounded">
-          {lifecycle}
+          {lifecycleLabels[lifecycle]}
         </span>
       </div>
 
       <div className="flex gap-2 mt-2">
-        {channels.includes("mobile") && (
-          <span className="text-xs px-2 py-1 border border-gray-400 rounded">
-            Mobile
+        {channels.map((channel) => (
+          <span
+            key={channel}
+            className="text-xs px-2 py-1 border border-gray-400 rounded"
+          >
+            {channelLabels[channel]}
           </span>
-        )}
-        {channels.includes("web") && (
-          <span className="text-xs px-2 py-1 border border-gray-400 rounded">
-            Web
-          </span>
-        )}
-        {channels.includes("bot") && (
-          <span className="text-xs px-2 py-1 border border-gray-400 rounded">
-            Bot
-          </span>
-        )}
-        {channels.includes("academy") && (
-          <span className="text-xs px-2 py-1 border border-gray-400 rounded">
-            Academy
-          </span>
-        )}
+        ))}
       </div>
     </div>
   );
-}
+};

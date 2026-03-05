@@ -6,7 +6,6 @@ const lifecycleSteps = [
   "recruitment",
   "onboarding",
   "adaptation",
-  "work",
   "termination",
 ] as const;
 
@@ -15,94 +14,90 @@ const lifecycleLabels: Record<(typeof lifecycleSteps)[number], string> = {
   recruitment: "Подбор",
   onboarding: "Пребординг",
   adaptation: "Адаптация",
-  work: "Производительность",
   termination: "Документы",
 };
 
-const mockServicesByStep: Record<
-  (typeof lifecycleSteps)[number],
-  ServiceCardProps[]
-> = {
-  search: [
-    {
-      title: "Платформа вакансий",
-      description: "Список актуальных вакансий и заявок",
-      roles: ["employee"],
-      lifecycle: "search",
-      channels: ["web", "mobile"],
-      status: "done",
-    },
-  ],
-  recruitment: [
-    {
-      title: "Интервью-менеджер",
-      description: "Организация и отслеживание интервью",
-      roles: ["manager", "hr"],
-      lifecycle: "recruitment",
-      channels: ["web"],
-      status: "in-progress",
-    },
-  ],
-  onboarding: [
-    {
-      title: "Онбординг-платформа",
-      description: "Автоматизация адаптации новых сотрудников",
-      roles: ["hr", "manager"],
-      lifecycle: "onboarding",
-      channels: ["web", "mobile"],
-      status: "in-progress",
-    },
-  ],
-  adaptation: [
-    {
-      title: "Академия iSpring",
-      description: "Обучение и развитие сотрудников",
-      roles: ["employee", "hr"],
-      lifecycle: "adaptation",
-      channels: ["academy"],
-      status: "done",
-    },
-  ],
-  work: [
-    {
-      title: "Портал сотрудников",
-      description: "Доступ к личному кабинету и HR-документам",
-      roles: ["employee", "manager"],
-      lifecycle: "work",
-      channels: ["web", "mobile"],
-      status: "done",
-    },
-  ],
-  termination: [
-    {
-      title: "Оформление увольнения",
-      description: "Инструкции и все основные документы",
-      roles: ["employee", "hr"],
-      lifecycle: "termination",
-      channels: ["web"],
-      status: "planned",
-    },
-  ],
-};
+const mockServicesByStep: ServiceCardProps[] = [
+  {
+    title: "Платформа вакансий",
+    description: "Список актуальных вакансий и заявок",
+    roles: ["employee"],
+    lifecycle: "search",
+    channels: [],
+    status: "done",
+  },
+  {
+    title: "Интервью-менеджер",
+    description: "Организация и отслеживание интервью",
+    roles: ["manager", "hr"],
+    lifecycle: "recruitment",
+    channels: [],
+    status: "in-progress",
+  },
+  {
+    title: "Онбординг-платформа",
+    description: "Автоматизация адаптации новых сотрудников",
+    roles: ["hr", "manager"],
+    lifecycle: "onboarding",
+    channels: [],
+    status: "in-progress",
+  },
+  {
+    title: "Академия iSpring",
+    description: "Обучение и развитие сотрудников",
+    roles: ["employee", "hr"],
+    lifecycle: "adaptation",
+    channels: [],
+    status: "done",
+  },
+  {
+    title: "Портал сотрудников",
+    description: "Доступ к личному кабинету и HR-документам",
+    roles: ["employee", "manager"],
+    lifecycle: "work",
+    channels: [],
+    status: "done",
+  },
+  {
+    title: "Оформление и увольнения",
+    description: "Инструкции и все основные документы",
+    roles: ["employee", "hr"],
+    lifecycle: "termination",
+    channels: [],
+    status: "planned",
+  },
+];
 
 export function LifecycleNav() {
   return (
-    <section className="px-4 pr-0 py-6 border-b bg-white">
+    <section className="px-4 pr-0 py-6 bg-white">
       <div className="max-w-6xl mx-auto flex flex-col gap-4">
-        <h2 className="text-xl font-semibold">Маршрут сотрудника</h2>
+        <h2 className="text-2xl font-semibold">Маршрут сотрудника</h2>
 
         <div className="overflow-x-auto px-0 py-2">
           <div className="flex gap-4">
-            {lifecycleSteps.map((step) => (
-              <div key={step} className="flex-none w-64 snap-start">
-                <h3 className="font-medium mb-2">{lifecycleLabels[step]}</h3>
-                <div className="flex flex-col gap-2">
-                  {mockServicesByStep[step].map((service) => (
-                    <ServiceCard key={service.title} {...service} />
-                  ))}
+            {lifecycleSteps.map((step) => {
+              const servicesForStep = mockServicesByStep.filter(
+                (s) => s.lifecycle === step,
+              );
+
+              return (
+                <div
+                  key={step}
+                  className="flex-none w-64 snap-start flex flex-col"
+                >
+                  <h3 className="font-medium mb-2">{lifecycleLabels[step]}</h3>
+
+                  <div className="flex flex-col gap-2 flex-1">
+                    {servicesForStep.map((service) => (
+                      <div className="flex-1" key={service.title}>
+                        <ServiceCard {...service} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
             <div className="flex-none w-4"></div>
           </div>
         </div>

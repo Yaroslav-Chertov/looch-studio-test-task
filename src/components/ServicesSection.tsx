@@ -50,32 +50,22 @@ const mockServices: ServiceCardProps[] = [
     channels: ["mobile"],
     status: "in-progress",
   },
-  {
-    title: "Онлайн-библиотека МИФ",
-    description: "Образовательные материалы для сотрудников",
-    roles: ["employee", "hr"],
-    lifecycle: "adaptation",
-    channels: ["web", "academy"],
-    status: "planned",
-  },
 ];
 
 export function ServicesSection() {
-  const visibleServices = mockServices.slice(0, 6);
-
   return (
     <section className="px-4 py-6">
       <div className="max-w-6xl mx-auto flex flex-col gap-4">
-        <h2 className="text-xl font-semibold">Сервисы</h2>
+        <h2 className="text-2xl font-semibold">Сервисы</h2>
 
         <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {visibleServices.map((service) => (
+          {mockServices.map((service) => (
             <ServiceCard key={service.title} {...service} />
           ))}
         </div>
 
         <div className="flex justify-center mt-4">
-          <button className="px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition">
+          <button className="px-5 py-3 bg-black text-white text-sm font-medium w-full sm:w-48 hover:bg-gray-800 transition inline-block text-center rounded-md">
             Смотреть все
           </button>
         </div>

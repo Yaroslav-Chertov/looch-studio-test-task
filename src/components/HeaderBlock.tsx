@@ -57,11 +57,8 @@ export function HeaderBlock() {
             <a href="#services" className="text-gray-700 py-2">
               Сервисы
             </a>
-            <a href="#onboarding" className="text-gray-700 py-2">
-              Онбординг
-            </a>
             <a href="#roadmap" className="text-gray-700 py-2">
-              Дорожная карта
+              Маршрут сотрудника
             </a>
             <a href="#contacts" className="text-gray-700 py-2">
               Контакты

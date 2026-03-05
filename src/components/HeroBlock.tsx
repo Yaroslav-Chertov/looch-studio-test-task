@@ -13,13 +13,16 @@ export function HeroBlock() {
         </p>
 
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <button className="px-5 py-3 border border-black text-sm font-medium sm:w-48 hover:bg-gray-100 transition">
+          <button className="px-5 py-3 border border-black text-sm font-medium sm:w-48 hover:bg-gray-100 transition rounded-md">
             Найти сервис
           </button>
 
-          <button className="px-5 py-3 bg-black text-white text-sm font-medium sm:w-48 hover:bg-gray-800 transition">
+          <a
+            href="#new-employee"
+            className="px-5 py-3 bg-black text-white text-sm font-medium sm:w-48 hover:bg-gray-800 transition inline-block text-center rounded-md"
+          >
             Я новый сотрудник
-          </button>
+          </a>
         </div>
       </div>
     </section>
