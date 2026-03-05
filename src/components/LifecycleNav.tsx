@@ -35,7 +35,7 @@ const mockServicesByStep: ServiceCardProps[] = [
     status: "in-progress",
   },
   {
-    title: "Онбординг-платформа",
+    title: "Онбординг",
     description: "Автоматизация адаптации новых сотрудников",
     roles: ["hr", "manager"],
     lifecycle: "onboarding",

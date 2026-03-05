@@ -8,14 +8,12 @@ export type Lifecycle =
   | "adaptation"
   | "work"
   | "termination";
-export type Channel = "mobile" | "web" | "bot" | "academy";
 
 export type ServiceCardProps = {
   title: string;
   description: string;
   roles: Role[];
   lifecycle: Lifecycle;
-  channels: Channel[];
   status: "done" | "in-progress" | "planned";
 };
 
@@ -34,19 +32,11 @@ const lifecycleLabels: Record<Lifecycle, string> = {
   termination: "Увольнение",
 };
 
-const channelLabels: Record<Channel, string> = {
-  mobile: "Мобильное",
-  web: "Веб",
-  bot: "Бот",
-  academy: "Академия",
-};
-
 export const ServiceCard: FC<ServiceCardProps> = ({
   title,
   description,
   roles,
   lifecycle,
-  channels,
   status,
 }) => {
   const statusColor =
@@ -58,6 +48,10 @@ export const ServiceCard: FC<ServiceCardProps> = ({
 
   return (
     <div className="border border-gray-300 rounded-md p-4 flex flex-col gap-2 bg-white">
+      <div className="bg-gray-200 rounded-md h-32 flex items-center justify-center mb-2">
+        <span className="text-gray-500 text-sm">Изображение</span>
+      </div>
+
       <div className="flex justify-between items-start">
         <h3 className="font-semibold text-lg">{title}</h3>
         <span
@@ -73,29 +67,18 @@ export const ServiceCard: FC<ServiceCardProps> = ({
 
       <p className="text-sm text-gray-600">{description}</p>
 
-      <div className="flex flex-wrap gap-1">
+      <div className="flex flex-wrap gap-1 mt-2">
         {roles.map((role) => (
           <span
             key={role}
-            className="text-xs px-2 py-1 border border-gray-400 rounded"
+            className="text-xs px-2 py-1 border border-gray-300 rounded text-gray-500 bg-gray-50"
           >
             {roleLabels[role]}
           </span>
         ))}
-        <span className="text-xs px-2 py-1 border border-gray-400 rounded">
+        <span className="text-xs px-2 py-1 border border-gray-300 rounded text-gray-500 bg-gray-50">
           {lifecycleLabels[lifecycle]}
         </span>
-      </div>
-
-      <div className="flex gap-2 mt-2">
-        {channels.map((channel) => (
-          <span
-            key={channel}
-            className="text-xs px-2 py-1 border border-gray-400 rounded"
-          >
-            {channelLabels[channel]}
-          </span>
-        ))}
       </div>
     </div>
   );
