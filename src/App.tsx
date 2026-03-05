@@ -3,6 +3,7 @@ import { HeaderBlock } from "./components/HeaderBlock";
 import { HeroBlock } from "./components/HeroBlock";
 import { ServicesSection } from "./components/ServicesSection";
 import { ServicesGrid } from "./components/ServicesGrid";
+import { RoadmapBlock } from "./components/RoadmapBlock";
 import { NewEmployeeBlock } from "./components/NewEmployeeBlock";
 import { LifecycleNav } from "./components/LifecycleNav";
 import { FeedbackBlock } from "./components/FeedbackBlock";
@@ -15,6 +16,7 @@ function App() {
       <HeroBlock />
       <ServicesSection />
       <ServicesGrid />
+      <RoadmapBlock />
       <NewEmployeeBlock />
       <LifecycleNav />
       <FeedbackBlock />
