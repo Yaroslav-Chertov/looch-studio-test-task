@@ -47,38 +47,42 @@ export const ServiceCard: FC<ServiceCardProps> = ({
         : "bg-red-500";
 
   return (
-    <div className="border border-gray-300 rounded-md p-4 flex flex-col gap-2 bg-white">
-      <div className="bg-gray-200 rounded-md h-32 flex items-center justify-center mb-2">
+    <div className="border border-gray-300 rounded-md p-4 flex flex-col bg-white h-full">
+      <div className="bg-gray-200 rounded-md h-32 flex items-center justify-center mb-2 flex-shrink-0">
         <span className="text-gray-500 text-sm">Изображение</span>
       </div>
 
-      <div className="flex justify-between items-start">
-        <h3 className="font-semibold text-lg">{title}</h3>
-        <span
-          className={`px-2 py-1 text-xs text-white rounded whitespace-nowrap ${statusColor}`}
-        >
-          {status === "done"
-            ? "Реализовано"
-            : status === "in-progress"
-              ? "В работе"
-              : "Планируется"}
-        </span>
-      </div>
+      <div className="flex flex-col flex-1 justify-between">
+        <div>
+          <div className="flex justify-between items-start">
+            <h3 className="font-semibold text-lg">{title}</h3>
+            <span
+              className={`px-2 py-1 text-xs text-white rounded whitespace-nowrap ${statusColor}`}
+            >
+              {status === "done"
+                ? "Реализовано"
+                : status === "in-progress"
+                  ? "В работе"
+                  : "Планируется"}
+            </span>
+          </div>
 
-      <p className="text-sm text-gray-600">{description}</p>
+          <p className="text-sm text-gray-600 mt-2">{description}</p>
+        </div>
 
-      <div className="flex flex-wrap gap-1 mt-2">
-        {roles.map((role) => (
-          <span
-            key={role}
-            className="text-xs px-2 py-1 border border-gray-300 rounded text-gray-500 bg-gray-50"
-          >
-            {roleLabels[role]}
+        <div className="flex flex-wrap gap-1 mt-2">
+          {roles.map((role) => (
+            <span
+              key={role}
+              className="text-[10px] px-1 py-0.5 border border-gray-300 rounded text-gray-500 bg-gray-50"
+            >
+              {roleLabels[role]}
+            </span>
+          ))}
+          <span className="text-[10px] px-1 py-0.5 border border-gray-300 rounded text-gray-500 bg-gray-50">
+            {lifecycleLabels[lifecycle]}
           </span>
-        ))}
-        <span className="text-xs px-2 py-1 border border-gray-300 rounded text-gray-500 bg-gray-50">
-          {lifecycleLabels[lifecycle]}
-        </span>
+        </div>
       </div>
     </div>
   );

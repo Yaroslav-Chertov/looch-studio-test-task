@@ -7,7 +7,6 @@ const mockServices: ServiceCardProps[] = [
     description: "Доступ к личному кабинету и HR-документам",
     roles: ["employee", "manager"],
     lifecycle: "work",
-    channels: ["web", "mobile"],
     status: "done",
   },
   {
@@ -15,7 +14,6 @@ const mockServices: ServiceCardProps[] = [
     description: "Быстрый доступ к HR-сервисам через чат",
     roles: ["employee"],
     lifecycle: "onboarding",
-    channels: ["bot"],
     status: "done",
   },
   {
@@ -23,7 +21,6 @@ const mockServices: ServiceCardProps[] = [
     description: "Обучение и развитие сотрудников",
     roles: ["employee", "hr"],
     lifecycle: "adaptation",
-    channels: ["academy"],
     status: "done",
   },
   {
@@ -31,7 +28,6 @@ const mockServices: ServiceCardProps[] = [
     description: "Автоматизация адаптации новых сотрудников",
     roles: ["hr", "manager"],
     lifecycle: "onboarding",
-    channels: ["web", "mobile"],
     status: "in-progress",
   },
   {
@@ -39,7 +35,6 @@ const mockServices: ServiceCardProps[] = [
     description: "Информация о корпоративных привилегиях и программах",
     roles: ["employee"],
     lifecycle: "work",
-    channels: ["web"],
     status: "planned",
   },
   {
@@ -47,7 +42,6 @@ const mockServices: ServiceCardProps[] = [
     description: "Мотивация и здоровье сотрудников",
     roles: ["employee"],
     lifecycle: "work",
-    channels: ["mobile"],
     status: "in-progress",
   },
 ];

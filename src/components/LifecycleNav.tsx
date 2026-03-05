@@ -23,7 +23,6 @@ const mockServicesByStep: ServiceCardProps[] = [
     description: "Список актуальных вакансий и заявок",
     roles: ["employee"],
     lifecycle: "search",
-    channels: [],
     status: "done",
   },
   {
@@ -31,15 +30,13 @@ const mockServicesByStep: ServiceCardProps[] = [
     description: "Организация и отслеживание интервью",
     roles: ["manager", "hr"],
     lifecycle: "recruitment",
-    channels: [],
     status: "in-progress",
   },
   {
     title: "Онбординг",
-    description: "Автоматизация адаптации новых сотрудников",
+    description: "Автоматизация адаптации сотрудников",
     roles: ["hr", "manager"],
     lifecycle: "onboarding",
-    channels: [],
     status: "in-progress",
   },
   {
@@ -47,7 +44,6 @@ const mockServicesByStep: ServiceCardProps[] = [
     description: "Обучение и развитие сотрудников",
     roles: ["employee", "hr"],
     lifecycle: "adaptation",
-    channels: [],
     status: "done",
   },
   {
@@ -55,7 +51,6 @@ const mockServicesByStep: ServiceCardProps[] = [
     description: "Доступ к личному кабинету и HR-документам",
     roles: ["employee", "manager"],
     lifecycle: "work",
-    channels: [],
     status: "done",
   },
   {
@@ -63,7 +58,6 @@ const mockServicesByStep: ServiceCardProps[] = [
     description: "Инструкции и все основные документы",
     roles: ["employee", "hr"],
     lifecycle: "termination",
-    channels: [],
     status: "planned",
   },
 ];
