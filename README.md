@@ -95,24 +95,6 @@ https://looch-studio-test-task.vercel.app/
 
 # Структура проекта
 
-Пример упрощенной структуры:
-
-    src
-     ├─ components
-     │   ├─ ServiceCard
-     │   ├─ ServicesGrid
-     │   └─ Layout
-     │
-     ├─ pages
-     │   └─ Home
-     │
-     ├─ data
-     │   └─ services.ts
-     │
-     ├─ styles
-     │
-     └─ main.tsx
-
 Структура проекта ориентирована на:
 
 - переиспользуемые UI‑компоненты
